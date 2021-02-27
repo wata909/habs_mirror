@@ -1,0 +1,193 @@
+/*
+
+
+*/
+@charset "utf-8";
+/* this @charset is for mozilla's bug */
+
+pre, dl, ol, p, blockquote
+{
+	line-height:140%;
+	letter-spacing:.1em;
+}
+
+blockquote
+{
+	margin-left:32px;
+}
+
+body,td
+{
+	color:black;
+	background-color:white;
+	margin-left:2%;
+	margin-right:2%;
+	font-size:90%;
+	font-family:verdana, arial, helvetica, Sans-Serif;
+}
+
+a:link
+{
+	color:#215dc6;
+	background-color:inherit;
+	text-decoration:none;
+}
+
+a:active
+{
+	color:#215dc6;
+	background-color:#CCDDEE;
+	text-decoration:none;
+}
+
+a:visited
+{
+	color:#a63d21;
+	background-color:inherit;
+	text-decoration:none;
+}
+
+a:hover
+{
+	color:#215dc6;
+	background-color:#CCDDEE;
+	text-decoration:underline;
+}
+
+
+h1
+{
+	font-family: verdana, arial, helvetica, Sans-Serif;
+	font-size: 25px;
+	color: #000000;
+	background-color: #DDDDDD;
+	padding: 0.3em;
+	margin: 1px;
+	margin-bottom: 5px;
+}
+
+h2
+{
+ 	border-bottom:  3px solid #DDDDDD;
+ 	border-top:     1px solid #DDDDDD;
+ 	border-left:   10px solid #DDDDDD;
+ 	border-right:   5px solid #DDDDDD;
+
+	background-color: #FFFFFF;
+	padding: 0.2em;
+	padding-left: 0.4em;
+	margin: 1px;
+	margin-top:20px;
+	margin-bottom: 3px;
+	font-family: verdana, arial, helvetica, Sans-Serif;
+}
+
+h3
+{
+	font-family: verdana, arial, helvetica, Sans-Serif;
+	font-size: 20px;
+	color: #000000;
+	background-color: #DDDDDD;
+	padding: 0.3em;
+	margin: 1px;
+	margin-bottom: 5px;
+}
+
+h4
+{
+ 	border-left:   18px solid #DDDDDD;
+	background-color: #FFFFFF;
+	padding: 0.1em;
+	padding-left: 0.4em;
+	margin: 1px;
+	margin-bottom: 1px;
+	font-family: verdana, arial, helvetica, Sans-Serif;
+}
+
+h5, h6
+{
+	font-family: verdana, arial, helvetica, Sans-Serif;
+	background-color: #DDDDDD;
+	padding: .3em;
+}
+
+h1.title
+{
+	font-size: 30px;
+	font-weight:bold;
+	background-color:transparent;
+	padding: 12px 0px 0px 0px;
+	border: 0px;
+	margin: 12px 0px 0px 0px;
+}
+
+dt
+{
+	font-weight:bold;
+	margin-top:1em;
+	margin-left:1em;
+}
+
+pre {
+	border-top:    #666666 1px solid;
+	border-bottom: #cccccc 1px solid;
+	border-left:   #666666 1px solid;
+	border-right:  #cccccc 1px solid;
+	padding: 0.5em;
+	margin-left: 1em;
+	margin-right: 2em;
+	white-space: pre;
+	background-color: #eeeeee;
+	color: #555555;
+	line-height: 1em;
+}
+
+img
+{
+	border:none;
+	vertical-align:middle;
+}
+
+ul
+{
+	margin-top:.5em;
+	margin-bottom:.5em;
+	line-height:130%;
+}
+
+em
+{
+	font-style:italic;
+}
+
+strong
+{
+	font-weight:bold;
+}
+
+
+ul.list1
+{
+	list-style-type:disc;
+}
+ul.list2
+{
+	list-style-type:circle;
+}
+ul.list3
+{
+	list-style-type:square;
+}
+ol.list1
+{
+	list-style-type:decimal;
+}
+ol.list2
+{
+	list-style-type:lower-roman;
+}
+ol.list3
+{
+	list-style-type:lower-alpha;
+}
+

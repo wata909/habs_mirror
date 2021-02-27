@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
+        <head>
+        <title>Historical Agro-Environment Browsing System</title>
+        <style type="text/css">
+            body {
+            background-color:moccasin;
+            border: 0px;
+            margin: 0px;
+            padding: 0px;
+            }
+            
+            #header {
+                height: 100px;
+            }
+            #main {
+                width:100%;
+            } 
+            #map {
+                width: 70%;
+                height: 600px;
+                border: 1px solid black;
+                float: left;
+                background-color:white;
+            }
+            
+            #contents {
+                 height: 600px;
+                 width: 29%;
+                 border-top: 1px solid black;
+                 border-bottom: 1px solid black;
+                 border-right: 1px solid black;
+                 float: left;
+            }
+            
+            
+            
+            #wrapper {
+                width: 70%;
+                clear: left;
+            }
+            
+            #location {
+                float: right;
+            }
+            p.explain {
+                 padding: 5px;
+            }
+            
+            p.ref {
+                 padding: 5px;
+                 font-size:70%;
+            }
+
+            .olImageLoadError { 
+                 /* when OL encounters a 404, don't display the pink image */
+                 display: none !important;
+            } 
+            
+            img { border: none;}
+
+       </style>
+       <script src="https://openlayers.org/api/OpenLayers.js"></script>
+       <script src="./habs_map.js" type="text/javascript" charset="Shift_JIS"></script>
+       </head>
+    <body onload="init()">
+<!--  
+<p class="explain"><span style="font-size:150%;">お知らせ。</span><br />
+    　2012年5月14日10～16時にかけて，システム更新作業のために停止します。なお、作業の進捗状況により、再開時刻が遅れる場合もございます。ご利用者のみなさまにはご迷惑をおかけしますが，よろしくお願いします。<br />
+    　迅速測図のデータについては，<a href="https://www.finds.jp/altmap/">農業土地利用変遷マップ</a>にても配信されておりますので、よろしければそちらをご利用ください。<p>
+-->
+        <div id="header"><a href="./index_e.html"><img src="./img/header_e.jpg" alt="Historical Agro-Enviromental Sysytem" width="1000px" height="100px" /></a></div>
+        <div id="main">
+         <div id="map"></div>
+           <div id="contents">
+
+           <p class="explain">
+           Welcome to Historical Agro-Environment Browsing System.<br />
+           In this site, You can browse the Rapid Survey Maps, that is the first cartographical map series of Japan. Also, you can compare a present land use with the Rapid Survey Maps. This site will help you to understand the traditional landscape and agricultural land use change.<br />
+           Please click a place in bellow, which you have interest in. </p>
+
+           <ul class="explain">
+           <li><strong>Tokyo Pref.</strong> <a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=35.68428&lon=139.75339&layers=B0">Tokyo</a>, <a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=35.69998&lon=139.41578&layers=B0">Tachikawa</a>.</li>
+           <li><strong>Kanagawa. Pref.</strong> <a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=35.46438&lon=139.62533&layers=B0">Yokohama</a>, <a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=35.33066&lon=139.40603&layers=B0">Chigasaki</a>, <a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=35.25118&lon=139.15918&layers=B0">Odawara</a>.</li>
+           <li><strong>Saitama Pref.</strong> <a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=35.89328&lon=139.63276&layers=B0">Saitama</a>, <a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=36.14467&lon=139.38407&layers=B0">Kumagaya</a>.</li>
+           <li><strong>Chiba Pref.</strong> <a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=35.60677&lon=140.12148&layers=B0">Chiba</a>, <a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=35.86229&lon=139.97217&layers=B0">Kashiwa</a>, <a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=35.73192&lon=140.83199&layers=B0">Choushi</a>, <a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=35.77792&lon=140.3158&layers=B0">Narita</a>, <a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=35.42618&lon=140.29331&layers=B0">Mobara</a>, 　<a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=35.38275&lon=139.92304&layers=B0">Kisarazu</a>, <a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=34.993&lon=139.86265&layers=B0">Tateyama</a></li>
+           <li><strong>Ibaraki Pref.</strong> <a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=36.34217&lon=140.59325&layers=B0">Oharai</a>, <a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=36.08382&lon=140.19843&layers=B0">Tsuchiura</a>, <a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=35.96941&lon=140.62771&layers=B0">Kashima</a></li>
+           <li><strong>Tochigi Pref.</strong>　<a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=36.31436&lon=139.80498&layers=B0">Oyama</a>.</li>
+           <li><strong>Gunma Pref.</strong>　<a href="https://habs.dc.affrc.go.jp/habs_map_e.html?zoom=13&lat=36.39041&lon=139.06872&layers=B0">Maebashi</a>.</li>
+           </ul>
+
+           
+           <p class="explain">
+           Also, you can see Rapid Survey Maps using Google Earth. Please, download <a href="https://habs.dc.affrc.go.jp/kml/habs_cc.kml"><img src="./img/kml_mini_icon.png" />this file</a>. <br />
+           If there is any question, please see the <a href="https://habs.dc.affrc.go.jp/habs_faq.html">FAQ</a> about this site (Sorry, still only Japanese),  or e-mail ( niwasaki at affrc dot go dot jp) </p>
+           </p>
+
+           <p class="explain">
+              This system powered by <a href="https://www.klokan.cz/projects/gdal2tiles/">GDAL2Tiles</a>, <a href="https://www.mapbox.com/tilemill/">TileMill</a> and <a href="https://openlayers.org/">Open Layers</a>.
+           </p>
+
+           </div>
+         <div id="wrapper">
+
+              <!-- <div id="location"></div> -->
+              <!-- <div id="scaleline"></div> -->
+        </div>
+        
+        <div id="cc">
+          <div style="width: 900px; text-align:center; margin-top:15px"><a rel="license" href="https://creativecommons.org/licenses/by/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by/2.1/jp/88x31.png" /></a></div>
+        </div>
+
+<p class="ref">
+           <b>Acknowledgment</b>.<br />
+           The KMZ file is provided by <a href="https://www.mapconcierge.com/o/htm/profile.html">Mr. Taichi Furuhashi</a> (<a href="https://www.mapconcierge.com/">Map Concierge</a>)<br /><br />
+           <b>Confirmation of Japanese law</b>.<br />
+           　この地図は、国土地理院長の承認を得て、同院発行の2万分の1迅速測図を複製したものである。（承認番号　平19総測、第10号）<br />
+           　この地図の作成に当たっては、数値地図25000（空間データ基盤）、数値地図2500（空間データ基盤）及び数値地図50mメッシュ（標高）を使用したものである。（承認番号　平15総使、第332号）<br />
+           　土地利用図の作成に当たっては、<a href="https://nlftp.mlit.go.jp/ksj/">国土数値情報</a>・土地利用メッシュ（平成9年）を使用したものである。<br />
+           　タイトルの画像は、迅速測図原図復刻版「茨城縣下總國北相馬郡藤代宿及び常陸國河内郡若柴村近傍村落」より引用した</p>
+           </p>
+
+         </div>
+       <div style="margin:2.4em 0 0.8em; padding-top:0.2em; text-align:center; line-height:1.2; border-top:8px solid #800000;">
+<a href="https://www.niaes.affrc.go.jp/" style="padding:0em 0.6em; font-size:90%;">農業環境技術研究所トップページへ</a>
+</div>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-100297-3']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+    </body>
+</html>
