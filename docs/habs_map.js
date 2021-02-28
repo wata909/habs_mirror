@@ -24,11 +24,11 @@ function init() {
     map.div.style.backgroundColor = 'rgb(255,255,255)';
 
     // 迅速測図
-    var rapid = new OpenLayers.Layer.TMS(
-//    var rapid = new OpenLayers.Layer.XYZ(
+//    var rapid = new OpenLayers.Layer.TMS(
+    var rapid = new OpenLayers.Layer.XYZ(
         "迅速測図（1880年代）",
-        "https://aginfo.cgk.affrc.go.jp/ws/tmc/1.0.0/Kanto_Rapid-900913/",
-//        "https://aginfo.cgk.affrc.go.jp/ws/tmc/1.0.0/Kanto_Rapid-900913-L/${z}/${x}/${y}.png"
+//        "https://habs.dc.affrc.go.jp/rapid16/",
+        "https://aginfo.cgk.affrc.go.jp/ws/tmc/1.0.0/Kanto_Rapid-900913-L/${z}/${x}/${y}.png",
 
         {
 //            "getURL": getUrlByXYZ,
