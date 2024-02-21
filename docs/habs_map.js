@@ -29,11 +29,11 @@ function init() {
 
 var rapid = new OpenLayers.Layer.XYZ(
         "迅速測図（1880年代）",
-        "https://boiledorange73.sakura.ne.jp/ws/tile/Kanto_Rapid-900913/{z}/{x}/{y}.png",
+        "https://boiledorange73.sakura.ne.jp/ws/tile/Kanto_Rapid-900913/{z}/{x}/{y}.jpg",
 
         {
 //           "getURL": getUrlByXYZ,
-            type: "png",
+            type: "jpg",
             numZoomLevels: 17,
             isBaseLayer: true
         }
