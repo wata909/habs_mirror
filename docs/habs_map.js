@@ -25,13 +25,14 @@ function init() {
 
     // 迅速測図
 //    var rapid = new OpenLayers.Layer.TMS(
-    var rapid = new OpenLayers.Layer.XYZ(
-        "迅速測図（1880年代）",
 //        "https://habs.dc.affrc.go.jp/rapid16/",
+
+var rapid = new OpenLayers.Layer.XYZ(
+        "迅速測図（1880年代）",
         "https://boiledorange73.sakura.ne.jp/ws/tile/Kanto_Rapid-900913/{z}/{x}/{y}.png",
 
         {
-//            "getURL": getUrlByXYZ,
+//           "getURL": getUrlByXYZ,
             type: "png",
             numZoomLevels: 17,
             isBaseLayer: true
