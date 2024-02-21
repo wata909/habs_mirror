@@ -23,21 +23,29 @@ function init() {
     var map = new OpenLayers.Map('map',options);
     map.div.style.backgroundColor = 'rgb(255,255,255)';
 
-    // 迅速測図
-//    var rapid = new OpenLayers.Layer.TMS(
-//        "https://habs.dc.affrc.go.jp/rapid16/",
-
-var rapid = new OpenLayers.Layer.XYZ(
+// 迅速測図
+var rapid = new OpenLayers.Layer.TMS(
         "迅速測図（1880年代）",
-        "https://boiledorange73.sakura.ne.jp/ws/tile/Kanto_Rapid-900913/{z}/{x}/{y}.png",
+        "https://habs.rad.naro.go.jp/rapid16/",
 
         {
-//           "getURL": getUrlByXYZ,
+           "getURL": getUrlByXYZ,
             type: "png",
             numZoomLevels: 17,
             isBaseLayer: true
         }
     );
+
+// 迅速測図XYZ
+// var rapid = new OpenLayers.Layer.XYZ(
+//         "迅速測図（1880年代）",
+//         "https://boiledorange73.sakura.ne.jp/ws/tile/Kanto_Rapid-900913/{z}/{x}/{y}.png",
+//         {
+//             type: "png",
+//             numZoomLevels: 17,
+//             isBaseLayer: true
+//         }
+//     );
 
     // 電子国土基本図xyz対応　2014.01.09 hirakawa
     var cjmap = new OpenLayers.Layer.XYZ(
@@ -217,7 +225,7 @@ var rapid = new OpenLayers.Layer.XYZ(
     if (OpenLayers.Util.alphaHack() == false) { rapid_overlay.setOpacity(0.5); }
             
         // マップにレイヤを追加
-        map.addLayers([rapid,cjmap,cjort,cjgazo,kibantms,landuse,tokyo5k,rapid_overlay,line_overlay]);
+        map.addLayers([rapid,cjmap,cjort,cjgazo,kibantms,landuse,tokyo5k,rapid_overlay]);
 
         if( !map.getCenter() ) {
             var lonlat = new OpenLayers.LonLat(139.75339, 35.68428);
