@@ -201,7 +201,7 @@ var rapid = new OpenLayers.Layer.XYZ(
     // オーバーレイラインタイル化　2014.01.09 hirakawa
     var line_overlay = new OpenLayers.Layer.TMS(
         "基盤情報",
-        "https://habs.dc.affrc.go.jp/lines/",
+        "https://habs.rad.naro.go.jp/lines/",
         {
             "getURL": getUrlByXYZ,
             type: "png",
@@ -212,62 +212,12 @@ var rapid = new OpenLayers.Layer.XYZ(
        {buffer: 0} 
     );
     
-    // The tiled layers 2014.01.09 Hirakawa
-    //var water = new OpenLayers.Layer.WMS(
-    //    "水涯線", "http://habs.dc.affrc.go.jp/geoserver201/gwc/service/wms",
-    //    {
-    //        srs: 'EPSG:900913',
-    //        layers: 'habs:suiiki_ll',
-    //        styles: '',
-    //        format: 'image/png',
-    //        transparent: 'true',
-    //        tiled: 'true'
-    //    },
-    //    {buffer: 0}
-    //);            
-
-    //var road = new OpenLayers.Layer.WMS(
-    //    "道路", "http://habs.dc.affrc.go.jp/geoserver201/gwc/service/wms",
-    //    {
-    //       srs: 'EPSG:900913',
-    //        layers: 'habs:douro_ll',
-    //        format: 'image/png',
-    //        transparent: 'true', 
-    //        tiled: 'true'
-    //    },
-    //    {buffer: 0} 
-    //);
-
-    //var rail = new OpenLayers.Layer.WMS(
-    //    "鉄道", "http://habs.dc.affrc.go.jp/geoserver201/gwc/service/wms",
-    //    {
-    //        srs: 'EPSG:900913',
-    //        layers: 'habs:tetsudou_ll',
-    //        format: 'image/png',
-    //        transparent: 'true',
-    //        tiled: 'true'
-    //    },
-    //    {buffer: 0}
-    //);
     
-    // 地名
-    var pntms = new OpenLayers.Layer.TMS(
-        "地名",
-        "https://www.finds.jp/ws/tmc/",
-        {
-            layername: "pntms-900913",
-            type: "png",
-            attribution: '<a target="_blank" href="http://www.finds.jp/tmc/index.html.ja">タイル地図キャッシュサービス</a>',
-            isBaseLayer: false
-        }
-    );
-
-
 
     if (OpenLayers.Util.alphaHack() == false) { rapid_overlay.setOpacity(0.5); }
             
         // マップにレイヤを追加
-        map.addLayers([rapid,cjmap,cjort,cjgazo,kibantms,landuse,tokyo5k,rapid_overlay,line_overlay,pntms]);
+        map.addLayers([rapid,cjmap,cjort,cjgazo,kibantms,landuse,tokyo5k,rapid_overlay,line_overlay]);
 
         if( !map.getCenter() ) {
             var lonlat = new OpenLayers.LonLat(139.75339, 35.68428);
