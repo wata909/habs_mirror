@@ -28,7 +28,7 @@ function init() {
     var rapid = new OpenLayers.Layer.XYZ(
         "迅速測図（1880年代）",
 //        "https://habs.dc.affrc.go.jp/rapid16/",
-        "https://aginfo.cgk.affrc.go.jp/ws/tmc/1.0.0/Kanto_Rapid-900913-L/${z}/${x}/${y}.png",
+        "https://boiledorange73.sakura.ne.jp/ws/tile/Kanto_Rapid-900913/{z}/{x}/{y}.png",
 
         {
 //            "getURL": getUrlByXYZ,
@@ -125,7 +125,7 @@ function init() {
     // 土地利用タイル化　2014.01.15 hirakawa
     var landuse = new OpenLayers.Layer.TMS(
         "土地利用図（1997年）",
-        "https://habs.dc.affrc.go.jp/lu97/",
+        "https://habs.rad.naro.go.jp/lu97/",
         {
             "getURL": getUrlByXYZ,
             type: "png",
@@ -150,7 +150,7 @@ function init() {
     // 東京5千分の1タイル化　2014.01.15 hirakawa
     var tokyo5k = new OpenLayers.Layer.TMS(
         "東京五千分の一（1880年代）",
-        "https://habs.dc.affrc.go.jp/tokyo5k/",
+        "https://habs.rad.naro.go.jp/tokyo5k/",
         {
             "getURL": getUrlByXYZ,
             type: "png",
@@ -186,7 +186,7 @@ function init() {
     // オーバーレイ迅速測図
     var rapid_overlay = new OpenLayers.Layer.TMS(
         "迅速測図(透過)",
-        "https://habs.dc.affrc.go.jp/rapid16/",
+        "https://habs.rad.naro.go.jp/rapid16/",
         {
             "getURL": getUrlByXYZ,
             type: "png",
